@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-import {getUserBoard} from "../services/user.service";
+import {getPublicContent} from "../services/user.service";
 
 const PerlegoUser = () => {
   const [content, setContent] = useState("");
 
   useEffect(() => {
-    getUserBoard().then(
+    getPublicContent().then(
       (response) => {
         setContent(response.data);
       },

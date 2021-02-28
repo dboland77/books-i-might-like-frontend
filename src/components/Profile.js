@@ -1,5 +1,6 @@
 import React from "react";
-import {getCurrentUser} from "../services/auth.service";
+import { getCurrentUser } from "../services/auth.service";
+import Gallery from "./Gallery"
 
 const Profile = () => {
   const currentUser = getCurrentUser();
@@ -8,21 +9,11 @@ const Profile = () => {
     <div className="container">
       <header className="jumbotron">
         <h3>
-          <strong>{currentUser.username}</strong> Profile
+          <strong>{currentUser.username}</strong> Books I like -{" "}
+          {currentUser.user.username}
         </h3>
       </header>
-      <p>
-        <strong>Token:</strong> {currentUser.token.substring(0, 20)} ...{" "}
-        {currentUser.token.substr(currentUser.token.length - 20)}
-      </p>
-      <p>
-        <strong>Id:</strong> {currentUser.user.userid}
-      </p>
-      <p>
-        <strong>Username:</strong> {currentUser.user.username}
-      </p>
-      <strong>Books I like:</strong>
-      <ul>Books will go here</ul>
+      <Gallery/>
     </div>
   );
 };

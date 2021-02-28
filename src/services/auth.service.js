@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8888/api/";
-
 const register = (username, password, password_repeat) => {
-  return axios.post(API_URL + "sign-up", {
+  return axios.post(process.env.REACT_APP_API_URL + "sign-up", {
     username,
     password,
     password_repeat,
@@ -12,7 +10,7 @@ const register = (username, password, password_repeat) => {
 
 const login = (username, password) => {
   return axios
-    .post(API_URL + "login", {
+    .post(process.env.REACT_APP_API_URL + "login", {
       username,
       password,
     })
@@ -20,7 +18,6 @@ const login = (username, password) => {
       if (response.data.token) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
-
       return response.data;
     });
 };

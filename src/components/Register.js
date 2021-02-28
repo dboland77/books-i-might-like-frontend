@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import { isEmail } from "validator";
+// import { isEmail } from "validator";
 
-import {register} from "../services/auth.service";
+import { register } from "../services/auth.service";
 
 const required = (value) => {
   if (!value) {
@@ -16,15 +16,15 @@ const required = (value) => {
   }
 };
 
-const validEmail = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This is not a valid email.
-      </div>
-    );
-  }
-};
+// const validEmail = (value) => {
+//   if (!isEmail(value)) {
+//     return (
+//       <div className="alert alert-danger" role="alert">
+//         This is not a valid email.
+//       </div>
+//     );
+//   }
+// };
 
 const vusername = (value) => {
   if (value.length < 3 || value.length > 20) {
@@ -51,7 +51,7 @@ const Register = (props) => {
   const checkBtn = useRef();
 
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
+  // const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
@@ -61,10 +61,10 @@ const Register = (props) => {
     setUsername(username);
   };
 
-  const onChangeEmail = (e) => {
-    const email = e.target.value;
-    setEmail(email);
-  };
+  // const onChangeEmail = (e) => {
+  //   const email = e.target.value;
+  //   setEmail(email);
+  // };
 
   const onChangePassword = (e) => {
     const password = e.target.value;
@@ -80,7 +80,7 @@ const Register = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      register(username, email, password).then(
+      register(username, password, password).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
@@ -124,7 +124,7 @@ const Register = (props) => {
                 />
               </div>
 
-              <div className="form-group">
+              {/* <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <Input
                   type="text"
@@ -134,7 +134,7 @@ const Register = (props) => {
                   onChange={onChangeEmail}
                   validations={[required, validEmail]}
                 />
-              </div>
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="password">Password</label>
@@ -157,7 +157,9 @@ const Register = (props) => {
           {message && (
             <div className="form-group">
               <div
-                className={ successful ? "alert alert-success" : "alert alert-danger" }
+                className={
+                  successful ? "alert alert-success" : "alert alert-danger"
+                }
                 role="alert"
               >
                 {message}

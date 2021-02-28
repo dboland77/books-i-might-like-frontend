@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import Gallery from "./components/Gallery";
+import NotFound from "./components/NotFound"
 import PerlegoUser from "./components/PerlegoUser";
 
 const App = () => {
@@ -41,7 +43,7 @@ const App = () => {
 
           {currentUser && (
             <li className="nav-item">
-              <Link to={"/user"} className="nav-link">
+              <Link to={"/profile"} className="nav-link">
                 User
               </Link>
             </li>
@@ -85,6 +87,8 @@ const App = () => {
           <Route exact path="/register" component={Register} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/user" component={PerlegoUser} />
+          <Route exact path="/Gallery" component={Gallery} />
+          <Route exact path="/not-found" component={NotFound} />
         </Switch>
       </div>
     </div>
