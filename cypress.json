@@ -1,8 +1,11 @@
 {
   "baseUrl": "http://localhost:3000",
   "env": {
-    "username": "bob",
-    "password": "bobbob",
-    "APIUrl": "http://localhost:8888/api"
-  }
+    "username": "newUser1",
+    "password": "newPassword1",
+    "APIUrl": "http://localhost:8888/api",
+    "newUser": "newUser1",
+    "newPassword": "newPassword1"
+  },
+  "testFiles": ["init.spec.js", "UserSignup.js", "UserLogin.js"]
 }
