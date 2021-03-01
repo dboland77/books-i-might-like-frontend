@@ -1,1 +1,8 @@
-{}
+{
+  "baseUrl": "http://localhost:3000",
+  "env": {
+    "username": "bob",
+    "password": "bobbob",
+    "APIUrl": "http://localhost:8888/api"
+  }
+}

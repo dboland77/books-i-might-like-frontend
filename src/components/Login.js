@@ -49,7 +49,7 @@ const Login = (props) => {
           const resMessage =
             (error.response &&
               error.response.data &&
-              error.response.data.message) ||
+              error.response.data.msg) ||
             error.message ||
             error.toString();
 
@@ -75,6 +75,7 @@ const Login = (props) => {
           <label htmlFor="username">Username</label>
           <Input
             type="text"
+            autoFocus
             className="form-control"
             name="username"
             value={username}
