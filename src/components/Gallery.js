@@ -1,7 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import Book from "./Book";
 import { getBooks } from "../services/user.service";
-import "../Gallery.css";
+import "../styles/Gallery.css";
 
 function Gallery() {
   const [books, setBooks] = useState("");
@@ -20,8 +20,6 @@ function Gallery() {
       }
     );
   }, []);
-
-  console.log(books);
 
   return (
     <Fragment>

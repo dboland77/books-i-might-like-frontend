@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../Gallery.css";
+import "../styles/Gallery.css";
 
 function Book(props) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
+import "./styles/App.css";
 
 import {getCurrentUser, logout} from "./services/auth.service";
 
@@ -79,8 +79,7 @@ const App = () => {
           </div>
         )}
       </nav>
-
-      <div className="container mt-3">
+      
         <Switch>
           <Route exact path={["/", "/home"]} component={Home} />
           <Route exact path="/login" component={Login} />
@@ -90,7 +89,7 @@ const App = () => {
           <Route exact path="/Gallery" component={Gallery} />
           <Route exact path="/not-found" component={NotFound} />
         </Switch>
-      </div>
+      
     </div>
   );
 };
