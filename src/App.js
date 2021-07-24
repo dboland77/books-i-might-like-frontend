@@ -3,15 +3,15 @@ import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles/App.css";
 
-import {getCurrentUser, logout} from "./services/auth.service";
+import { getCurrentUser, logout } from "./services/auth.service";
 
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import Gallery from "./components/Gallery";
-import NotFound from "./components/NotFound"
-import PerlegoUser from "./components/PerlegoUser";
+import NotFound from "./components/NotFound";
+import User from "./components/User";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,7 +32,7 @@ const App = () => {
     <div>
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to={"/"} className="navbar-brand">
-          Perlego Challenge
+          Books I like
         </Link>
         <div className="navbar-nav mr-auto">
           <li className="nav-item">
@@ -79,17 +79,16 @@ const App = () => {
           </div>
         )}
       </nav>
-      
-        <Switch>
-          <Route exact path={["/", "/home"]} component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/user" component={PerlegoUser} />
-          <Route exact path="/Gallery" component={Gallery} />
-          <Route exact path="/not-found" component={NotFound} />
-        </Switch>
-      
+
+      <Switch>
+        <Route exact path={["/", "/home"]} component={Home} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
+        <Route exact path="/profile" component={Profile} />
+        <Route path="/user" component={User} />
+        <Route exact path="/Gallery" component={Gallery} />
+        <Route exact path="/not-found" component={NotFound} />
+      </Switch>
     </div>
   );
 };
